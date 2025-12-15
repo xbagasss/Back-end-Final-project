@@ -1,6 +1,108 @@
 # Nutrition App – Web Sistem Manajemen Nutrisi
 
-Dokumentasi resmi untuk struktur project, alur kerja, dan hubungan antar komponen dalam aplikasi **Nutrition App**.
+Dokumentasi resmi untuk struktur project, alur kerja, instalasi, dan hubungan antar komponen dalam aplikasi **Nutrition App**.
+
+---
+
+# � Daftar Isi
+
+1. [Tentang Aplikasi](#-tentang-aplikasi)
+2. [Fitur Utama](#-fitur-utama)
+3. [Teknologi yang Digunakan](#-teknologi-yang-digunakan)
+4. [Instalasi & Konfigurasi](#-instalasi--konfigurasi)
+5. [Struktur Direktori](#-struktur-direktori)
+6. [Skema Database](#-skema-database)
+7. [Penjelasan Komponen](#-penjelasan-komponen)
+8. [Alur Kerja](#-alur-kerja)
+
+---
+
+# � Tentang Aplikasi
+
+**Nutrition App** adalah aplikasi berbasis web untuk memantau asupan nutrisi harian. Aplikasi ini memungkinkan pengguna untuk mencatat makanan harian, mendapatkan rekomendasi menu berdasarkan target kalori, dan melihat statistik konsumsi nutrisi mereka.
+
+---
+
+# 🚀 Fitur Utama
+
+*   **Manajemen Akun User**: Registrasi, Login, dan Pengaturan Profil (Berat Badan, Tinggi Badan, Target Kalori).
+*   **Pencarian Nutrisi Makanan**: Integrasi dengan **Edamam API** untuk mencari kandungan nutrisi makanan secara realtime.
+*   **Pencatatan Makanan Harian (Food Logging)**: Mencatat apa yang dimakan hari ini dan menghitung total kalori otomatis.
+*   **Analisis Nutrisi**: Menampilkan grafik asupan kalori harian dan mingguan.
+*   **Rekomendasi Menu (Meal Plan)**: Sistem cerdas yang merekomendasikan menu makanan harian sesuai dengan TDEE (Total Daily Energy Expenditure) pengguna.
+*   **Notifikasi Email**: Pengingat otomatis untuk mencatat makanan (menggunakan PHPMailer).
+
+---
+
+# 🛠 Teknologi yang Digunakan
+
+*   **Bahasa Pemrograman**: PHP 8.x (Native)
+*   **Database**: MySQL / MariaDB
+*   **Frontend**: HTML5, CSS3, JavaScript (Vanilla), Chart.js (untuk grafik)
+*   **Dependencies (Composer)**:
+    *   `phpmailer/phpmailer`: Pengiriman email.
+    *   `vlucas/phpdotenv`: Manajemen environment variable.
+
+---
+
+# ⚙ Instalasi & Konfigurasi
+
+Ikuti langkah berikut untuk menjalankan aplikasi di lokal (XAMPP/Laragon):
+
+### 1. Clone Repository
+
+```bash
+git clone https://github.com/xbagasss/Back-end-Final-project.git
+cd Back-end-Final-project
+```
+
+### 2. Install Dependencies
+
+Pastikan **Composer** sudah terinstall, lalu jalankan:
+
+```bash
+composer install
+```
+
+### 3. Konfigurasi Database
+
+1.  Buat database baru di MySQL, misalnya `nutrition_db`.
+2.  Import file database (jika ada) atau pastikan tabel dibuat sesuai [Skema Database](#-skema-database) di bawah.
+
+### 4. Konfigurasi Environment
+
+Copy file `.env.example` menjadi `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Lalu edit file `.env` sesuaikan dengan konfigurasi lokal Anda:
+
+```env
+DB_HOST=localhost
+DB_NAME=nutrition_db
+DB_USER=root
+DB_PASS=
+
+# Konfigurasi API Edamam (Untuk fitur search nutrition)
+EDAMAM_APP_ID=your_app_id
+EDAMAM_APP_KEY=your_app_key
+
+# Konfigurasi SMTP (Untuk notifikasi email)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=email@anda.com
+SMTP_PASS=password_aplikasi
+```
+
+### 5. Jalankan Aplikasi
+
+Buka browser dan akses:
+
+```
+http://localhost/Back-end-Final-project/public/index.php
+```
 
 ---
 
@@ -9,169 +111,113 @@ Dokumentasi resmi untuk struktur project, alur kerja, dan hubungan antar kompone
 ```
 NutritionApp/
 ├── src/
-│   ├── Config/
-│   │   └── Database.php
-│   │
-│   ├── Models/
-│   │   ├── User.php
-│   │   ├── Food.php
-│   │   ├── NutritionLog.php
-│   │   └── Notification.php
-│   │
-│   ├── Services/
-│   │   ├── AuthService.php
-│   │   ├── AnalyticsService.php
-│   │   ├── MealRecommendationService.php
-│   │   ├── NutritionApiClient.php
-│   │   └── NotificationService.php
+│   ├── Config/       # Konfigurasi Database
+│   ├── Models/       # Representasi Tabel Database (CRUD)
+│   ├── Services/     # Business Logic & Integrasi API
 │
-├── public/
-│   ├── index.php
-│   ├── login.php
-│   ├── register.php
-│   ├── dashboard.php
-│   ├── search_nutrition.php
-│   ├── meat_plan.php
-│   └── calendar.php
+├── public/           # File yang diakses User (Frontend/Views)
+│   ├── index.php     # Landing Page
+│   ├── dashboard.php # Halaman Utama User
+│   ├── api/          # (Opsional) Endpoint AJAX
 │
-├── .env
-└── vendor/
+├── vendor/           # Library Composer
+├── .env              # Konfigurasi Sensitif
+└── .gitignore        # Daftar file yang diabaikan Git
 ```
 
 ---
 
-# 🔍 Penjelasan Folder & Hubungan Antar Komponen
+# 🗄 Skema Database
 
-## **1. src/Config/**
+Berikut adalah tabel utama yang digunakan dalam aplikasi:
 
-#### `Database.php`
+### 1. `users`
+Menyimpan data pengguna dan target kesehatan mereka.
+*   `id` (INT, PK, AI)
+*   `name` (VARCHAR)
+*   `email` (VARCHAR, Unique)
+*   `password` (VARCHAR)
+*   `height`, `weight`, `age` (INT)
+*   `daily_calorie_goal` (INT)
 
-* Menginisialisasi koneksi database menggunakan **PDO**.
-* Dipanggil oleh *semua model*.
+### 2. `foods`
+Database makanan lokal yang bisa dipilih user.
+*   `id` (INT, PK, AI)
+*   `name` (VARCHAR)
+*   `calories`, `protein`, `carbs`, `fat` (INT)
+*   `created_by` (INT, FK -> users.id)
 
-**Alur:**
-
-```
-Service/Controller → Model → Database.php → Database
-```
-
----
-
-## **2. src/Models/**
-
-Model merepresentasikan tabel database dan berisi fungsi CRUD.
-
-### Model yang tersedia:
-
-* **User** → data akun, profile, dan target kalori
-* **Food** → data makanan yang tersimpan
-* **NutritionLog** → catatan harian konsumsi makanan user
-* **Notification** → log notifikasi sistem
-
-**Relasi antar model:**
-
-```
-User 1—* NutritionLog *—1 Food
-User 1—* Notification
-```
+### 3. `nutrition_logs`
+Catatan riwayat makan user per hari.
+*   `id` (INT, PK, AI)
+*   `user_id` (INT, FK -> users.id)
+*   `food_name` (VARCHAR)
+*   `calories` (INT)
+*   `date` (DATE)
 
 ---
 
-## **3. src/Services/**
+# 🔍 Penjelasan Komponen
 
-Layer yang menangani *logic aplikasi* dan integrasi eksternal.
+## **1. src/Models/**
 
-### **AuthService**
+Model bertanggung jawab untuk komunikasi langsung dengan database.
+*   **User.php**: Menangani autentikasi dan profil user.
+*   **Food.php**: CRUD untuk data makanan.
+*   **NutritionLog.php**: Mencatat dan merekap kalori harian.
 
-* Menangani proses Login dan Register
-* Session management
+## **2. src/Services/**
 
-### **NutritionApiClient**
+Layer logic yang memisahkan kode kompleks dari Controller/View.
+*   **AuthService**: Validasi login/register.
+*   **NutritionApiClient**: Mengambil data dari **Edamam API**.
+*   **MealRecommendationService**: Algoritma penghitung kebutuhan kalori (TDEE).
+*   **NotificationService**: Mengirim email pengingat makan.
 
-* Mengambil data nutrisi dari API eksternal (misal: Edamam)
-* Digunakan di halaman `search_nutrition.php`
+## **3. public/**
 
-### **MealRecommendationService**
-
-* Menghitung rekomendasi makanan berdasarkan target kalori user
-* Menghitung TDEE dan Macro ratio
-
-### **AnalyticsService**
-
-* Menyediakan data untuk grafik di dashboard
-* Menghitung total kalori harian/mingguan
-
-**Flow Service:**
-
-```
-Public Page → Service → Model → DB
-              ↳ API Eksternal (NutritionApi)
-```
+Bagian Interface yang berinteraksi dengan user.
+*   **`search_nutrition.php`**: Menggunakan Javascript untuk memanggil API internal yang kemudian meneruskan request ke Edamam.
+*   **`dashboard.php`**: Menampilkan grafik chart.js berdasarkan data dari `AnalyticsService`.
 
 ---
 
-## **4. public/**
+# 🔗 Alur Kerja
 
-File yang bisa diakses langsung oleh user (Views & Controllers).
-
-### File utama:
-
-* `index.php` — Landing page / Homepage
-* `dashboard.php` — Pusat informasi user (Status kalori, Grafik)
-* `search_nutrition.php` — Pencarian database makanan
-* `meal_plan.php` — Halaman rekomendasi menu
-
-**Flow lengkap request browser:**
+**Contoh: User Mencari Makanan**
 
 ```
-Browser → public/search_nutrition.php → NutritionApiClient → External API
-                                     ↳ Service → DB (Save Log)
+User (Browser)
+   │
+   ▼
+public/search_nutrition.php (Input Query)
+   │
+   ▼
+src/Services/NutritionApiClient.php
+   │
+   │ (Request HTTP)
+   ▼
+Edamam API (External)
+   │
+   │ (JSON Response)
+   ▼
+NutritionApiClient.php (Parsing Data)
+   │
+   ▼
+public/search_nutrition.php (Tampil Hasil)
 ```
 
----
-
-## **5. vendor/**
-
-Folder hasil **Composer**. Berisi library seperti:
-
-* PHPMailer (untuk notifikasi email)
-* Dotenv Loader
-
----
-
-## **6. .env**
-
-Berisi configuration:
-
-* DB_USERNAME, DB_PASSWORD
-* EDAMAM_APP_ID, EDAMAM_APP_KEY (API Nutrisi)
-* SMTP_SERVER
-
----
-
-# 🔗 Diagram Alur Kerja
+**Contoh: User Menyimpan Log Makanan**
 
 ```
-              ┌──────────────────────────┐
-              │          User            │
-              └────────────┬─────────────┘
-                           │ HTTP Request
-                           ▼
-               ┌────────────────────────┐
-               │      public/*.php      │
-               └────────────┬──────────┘
-                           ▼
-                   ┌────────────────┐
-                   │    Service     │
-                   └──────┬────────┘
-                          │
-          ┌───────────────┼────────────────┐
-          ▼                               ▼
-   ┌───────────────┐                ┌──────────────┐
-   │     Model      │                │ API Eksternal │
-   └───────┬────────┘                └──────────────┘
-           ▼
-   ┌───────────────┐
-   │    Database    │
-   └───────────────┘
+User Klik "Simpan"
+   │
+   ▼
+public/save_food.php
+   │
+   ▼
+src/Models/NutritionLog.php (Insert DB)
+   │
+   ▼
+Database (Tabel nutrition_logs)
 ```
