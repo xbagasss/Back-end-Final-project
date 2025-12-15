@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Notifications — JawaHealthy</title>
+  <title>Notifications — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     .form-group { margin-bottom: 16px; }
@@ -89,7 +89,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

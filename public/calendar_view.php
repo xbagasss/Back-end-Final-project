@@ -23,7 +23,7 @@ $res = $stmt->get_result();
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Food Diary <?= $date ?> — JawaHealthy</title>
+  <title>Food Diary <?= $date ?> — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     .food-list-item { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px dashed #f0f2f6; }
@@ -32,7 +32,7 @@ $res = $stmt->get_result();
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link" style="color:var(--blue); font-weight:700;">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

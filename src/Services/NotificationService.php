@@ -51,9 +51,9 @@ class NotificationService {
             $mail->CharSet = 'UTF-8';
             
             // Recipients
-            $mail->setFrom($smtpUser, 'JawaHealthy App');
+            $mail->setFrom($smtpUser, 'SmartHealthy App');
             $mail->addAddress($to);
-            $mail->addReplyTo($smtpUser, 'JawaHealthy App');
+            $mail->addReplyTo($smtpUser, 'SmartHealthy App');
             
             // Content
             $mail->isHTML($isHtml);

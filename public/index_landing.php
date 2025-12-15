@@ -16,7 +16,7 @@
                     <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2"/>
                     <path d="M20 8L28 20L20 32L12 20L20 8Z" fill="currentColor"/>
                 </svg>
-                <span>YourProject</span>
+                <span>SmartHealthy</span>
             </a>
             
             <div class="navbar-top-links">

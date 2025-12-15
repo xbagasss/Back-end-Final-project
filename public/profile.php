@@ -122,12 +122,12 @@ $stats = $stmt->get_result()->fetch_assoc();
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Profil — JawaHealthy</title>
+  <title>Profil — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

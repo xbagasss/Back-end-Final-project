@@ -62,13 +62,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Tambah Food — JawaHealthy</title>
+    <title>Tambah Food — SmartHealthy</title>
     <link rel="stylesheet" href="../dashboard.css">
 </head>
 <body>
 
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="../dashboard.php" class="nav-link">Dashboard</a>
       <a href="../foods/index.php" class="nav-link" style="color:var(--blue); font-weight:700;">Foods</a>

@@ -77,7 +77,7 @@ if ($query) {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Search Nutrition — JawaHealthy</title>
+  <title>Search Nutrition — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     .search-hero {
@@ -146,7 +146,7 @@ if ($query) {
 </head>
 <body>
 <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link active" style="font-weight:700;">Search</a>

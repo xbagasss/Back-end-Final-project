@@ -305,13 +305,13 @@ if ($goal === 'muscle') {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Dashboard — JawaHealthy (Blue Premium)</title>
+  <title>Dashboard — SmartHealthy (Blue Premium)</title>
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link" style="color:var(--blue); font-weight:700;">Dashboard</a>
       <?php if (isset($user['role']) && $user['role'] === 'admin'): ?>

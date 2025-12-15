@@ -119,7 +119,7 @@ if ($uStats) {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Meal Planner — JawaHealthy</title>
+  <title>Meal Planner — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     .grid-col-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -133,7 +133,7 @@ if ($uStats) {
 </head>
 <body>
 <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

@@ -65,13 +65,13 @@ $displayLogs = array_reverse($logs);
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Weight Tracker — JawaHealthy</title>
+  <title>Weight Tracker — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

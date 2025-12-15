@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Login — JawaHealthy</title>
+  <title>Login — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     body { background: #f4f6f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
   <div class="auth-card">
     <div class="auth-title">Welcome Back</div>
-    <div class="auth-subtitle">Masuk untuk melanjutkan ke JawaHealthy</div>
+    <div class="auth-subtitle">Masuk untuk melanjutkan ke SmartHealthy</div>
 
     <?php if ($message): ?>
         <div class="alert-error"><?= $message ?></div>

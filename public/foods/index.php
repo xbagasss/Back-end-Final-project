@@ -15,7 +15,7 @@ $foods = $db->conn->query("SELECT * FROM foods ORDER BY id DESC");
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Foods — JawaHealthy</title>
+  <title>Foods — SmartHealthy</title>
   <link rel="stylesheet" href="../dashboard.css">
   <style>
     .food-grid { 
@@ -67,7 +67,7 @@ $foods = $db->conn->query("SELECT * FROM foods ORDER BY id DESC");
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="../dashboard.php" class="nav-link">Dashboard</a>
       <a href="../search_nutrition.php" class="nav-link">Search</a>

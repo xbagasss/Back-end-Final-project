@@ -52,7 +52,7 @@ require_once __DIR__ . '/layout_header.php';
             
             <div class="form-group">
                 <label class="form-label">Application Name</label>
-                <input type="text" name="app_name" class="form-control" value="<?= htmlspecialchars($settings['app_name'] ?? 'JawaHealthy') ?>">
+                <input type="text" name="app_name" class="form-control" value="<?= htmlspecialchars($settings['app_name'] ?? 'SmartHealthy') ?>">
             </div>
 
             <!-- Example for API Key (masked)

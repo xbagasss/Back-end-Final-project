@@ -47,7 +47,7 @@ class EmailTemplateService {
         
         <!-- Header -->
         <div style="background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); padding: 40px 30px; text-align: center; color: white;">
-            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">JawaHealthy</div>
+            <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">SmartHealthy</div>
             <p style="margin: 0; opacity: 0.9; font-size: 16px; font-weight: 500;">Weekly Nutrition Report</p>
         </div>
 
@@ -108,7 +108,7 @@ class EmailTemplateService {
 
         <!-- Footer -->
         <div style="background-color: #f8fafc; padding: 30px; text-align: center; color: #94a3b8; font-size: 12px; border-top: 1px solid #e2e8f0;">
-            <p style="margin: 0 0 8px;">&copy; " . date('Y') . " JawaHealthy App. Dibuat dengan ❤️ untuk hidup sehat.</p>
+            <p style="margin: 0 0 8px;">&copy; " . date('Y') . " SmartHealthy App. Dibuat dengan ❤️ untuk hidup sehat.</p>
             <p style="margin: 0;">Jangan lupa minum air putih hari ini!</p>
         </div>
     </div>

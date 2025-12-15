@@ -26,7 +26,7 @@ while ($d = $q->fetch_assoc()) {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Food Diary — JawaHealthy</title>
+  <title>Food Diary — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     .calendar-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 16px; margin-top: 24px; }
@@ -67,7 +67,7 @@ while ($d = $q->fetch_assoc()) {
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>

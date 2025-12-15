@@ -19,7 +19,7 @@ Aplikasi gagal mengirim notifikasi email karena konfigurasi SMTP Gmail belum dia
    - Jika tidak melihat opsi ini, pastikan 2-Step Verification sudah aktif
 3. Pilih aplikasi: **Mail**
 4. Pilih perangkat: **Other (Custom name)**
-5. Beri nama: **JawaHealthy App** atau **Healthy Food App**
+5. Beri nama: **SmartHealthy App** atau **Healthy Food App**
 6. Klik **Generate**
 7. Google akan menampilkan **16-digit password** seperti: `abcd efgh ijkl mnop`
 8. **PENTING**: Salin password ini (tanpa spasi)
@@ -111,5 +111,5 @@ Jika masih mengalami masalah setelah mengikuti panduan ini:
 
 ---
 
-**Dibuat untuk**: JawaHealthy App  
+**Dibuat untuk**: SmartHealthy App  
 **Terakhir diupdate**: 3 Desember 2024

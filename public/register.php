@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Register — JawaHealthy</title>
+  <title>Register — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <style>
     body { background: #f4f6f9; display: flex; align-items: center; justify-content: center; min-height: 100vh; }

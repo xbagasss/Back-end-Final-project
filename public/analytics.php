@@ -21,7 +21,7 @@ $history = $analyticsService->getHistory($user_id);
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Analytics — JawaHealthy</title>
+  <title>Analytics — SmartHealthy</title>
   <link rel="stylesheet" href="dashboard.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
@@ -36,7 +36,7 @@ $history = $analyticsService->getHistory($user_id);
 </head>
 <body>
   <header class="topbar">
-    <div class="brand">JawaHealthy</div>
+    <div class="brand">SmartHealthy</div>
     <nav>
       <a href="dashboard.php" class="nav-link">Dashboard</a>
       <a href="search_nutrition.php" class="nav-link">Search</a>
