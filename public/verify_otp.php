@@ -19,10 +19,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $otp = $_POST['otp_code'];
         $result = $auth->verifyOtp($email, $otp);
         if ($result === true) {
-            // Auto Login logic manually since we don't have password here, or redir to login
-            // For better UX, let's redirect to login with success message
-            header("Location: login.php?verified=1");
-            exit;
+            // Auto login user after successful OTP verification
+            session_start();
+            
+            // Fetch user data
+            $stmt = $db->conn->prepare("SELECT id, name, email, role FROM users WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $userData = $stmt->get_result()->fetch_assoc();
+            
+            if ($userData) {
+                $_SESSION['user'] = $userData;
+                // Redirect to setup profile instead of login
+                header("Location: setup_profile.php?welcome=1");
+                exit;
+            } else {
+                $message = "Error: User not found after verification.";
+            }
         } else {
             $message = $result;
         }

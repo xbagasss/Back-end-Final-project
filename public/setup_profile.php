@@ -99,6 +99,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <p>Sebelum mulai, yuk lengkapi profil kesehatanmu agar kami bisa menghitung kebutuhan kalorimu dengan akurat.</p>
     </div>
 
+    <?php if (isset($_GET['welcome'])): ?>
+        <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: white; padding: 16px 20px; border-radius: 12px; margin-bottom: 24px; text-align: center; box-shadow: 0 4px 12px rgba(16,185,129,0.2);">
+            <div style="font-size: 24px; margin-bottom: 4px;">🎉</div>
+            <strong style="font-size: 15px;">Akun berhasil diverifikasi!</strong>
+            <p style="margin: 4px 0 0 0; font-size: 14px; opacity: 0.95;">Selamat datang di SmartHealthy. Mari lengkapi profilmu untuk memulai perjalanan sehat!</p>
+        </div>
+    <?php endif; ?>
+
     <?php if ($error): ?>
         <div style="background:#fee2e2; color:#991b1b; padding:12px; border-radius:8px; margin-bottom:20px; text-align:center;"><?= $error ?></div>
     <?php endif; ?>

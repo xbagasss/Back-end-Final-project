@@ -8,12 +8,13 @@
 
 1.  [Tentang Proyek](#-tentang-proyek)
 2.  [Fitur Unggulan](#-fitur-unggulan)
-3.  [Panduan Pengguna (User Manual)](#-panduan-pengguna-user-manual)
-4.  [Panduan Administrator (Admin Manual)](#-panduan-administrator-admin-manual)
-5.  [Arsitektur Teknis](#-arsitektur-teknis)
-6.  [Instalasi & Konfigurasi](#-instalasi--konfigurasi)
-7.  [Skema Database](#-skema-database)
-8.  [Troubleshooting](#-troubleshooting)
+3.  [📚 Dokumentasi Lengkap](#-dokumentasi-lengkap)
+4.  [Panduan Pengguna (User Manual)](#-panduan-pengguna-user-manual)
+5.  [Panduan Administrator (Admin Manual)](#-panduan-administrator-admin-manual)
+6.  [Arsitektur Teknis](#-arsitektur-teknis)
+7.  [Instalasi & Konfigurasi](#-instalasi--konfigurasi)
+8.  [Skema Database](#-skema-database)
+9.  [Troubleshooting](#-troubleshooting)
 
 ---
 
@@ -56,13 +57,51 @@ Sistem ini mencakup manajemen pengguna (User/Admin), integrasi API eksternal unt
 *   **User**: Akses fitur tracking, profil, dan meal plan.
 *   **Admin**: Akses penuh ke dashboard admin, manajemen data pengguna (Edit/Delete/Promote Role), dan manajemen database makanan global.
 
+### 6. Seamless Registration Flow
+*   **Auto-Login setelah OTP**: User langsung login otomatis setelah verifikasi OTP berhasil.
+*   **Direct Profile Setup**: Langsung diarahkan ke halaman setup profile tanpa perlu login manual.
+*   **Welcome Message**: Notifikasi sambutan yang menarik untuk user baru yang telah terverifikasi.
+*   **Streamlined Onboarding**: Mengurangi friction dengan menghilangkan step login manual setelah verifikasi.
+
+---
+
+# 📚 Dokumentasi Lengkap
+
+Untuk pemahaman mendalam tentang arsitektur dan implementasi sistem, silakan lihat dokumentasi berikut:
+
+### 📖 **[ARSITEKTUR_BACKEND_FRONTEND.md](ARSITEKTUR_BACKEND_FRONTEND.md)** (900+ baris)
+Dokumentasi komprehensif yang mencakup:
+- **Backend Architecture**: Configuration Layer, Model Layer (User, Food, NutritionLog, Notification), Service Layer (Auth, MealRecommendation, Analytics, Notification, Reminder, Email, NutritionAPI)
+- **Frontend Architecture**: Page Structure (30+ halaman), UI Components & Styling, JavaScript & Chart.js Integration
+- **Integration Flows**: Mermaid Sequence Diagrams untuk Registration, Dashboard Load, Food Search, Daily Reminders
+- **Database Schema**: ERD lengkap dengan penjelasan setiap tabel
+- **API & External Services**: Edamam Nutrition API, PHPMailer SMTP Configuration
+- **Security Features**: Password hashing, SQL injection prevention, XSS protection, CSRF guidelines
+- **Performance Optimization**: Database indexes, query optimization, caching strategies
+- **Deployment Checklist**: Development & production setup lengkap
+
+### 📋 **[RINGKASAN_EKSEKUTIF.md](RINGKASAN_EKSEKUTIF.md)**
+Executive summary untuk quick reference:
+- System overview & key features
+- Tech stack breakdown
+- Database schema summary
+- Key workflows & deployment guide
+
+### 🎨 **Diagram Arsitektur Visual**
+- [Backend Architecture](docs/backend_architecture.png) - Diagram layer Configuration, Models, Services
+- [Frontend Structure](docs/frontend_structure.png) - Diagram hierarchical page structure
+
+
 ---
 
 # 📖 Panduan Pengguna (User Manual)
 
 ### Memulai (Getting Started)
 1.  **Daftar Akun**: Masuk ke halaman Register, isi Nama, Email, dan Password.
-2.  **Setup Profil**: Saat pertama login, isi data diri (Berat, Tinggi, Umur, Gender, Aktivitas). Sistem akan otomatis menghitung target kalori Anda.
+2.  **Verifikasi Email**: Cek email Anda dan masukkan 6 digit kode OTP yang dikirimkan.
+3.  **Auto-Login & Setup Profile**: Setelah OTP terverifikasi, Anda akan otomatis login dan diarahkan ke halaman setup profile.
+4.  **Lengkapi Profil**: Isi data diri (Berat, Tinggi, Umur, Gender, Aktivitas, Goal). Sistem akan otomatis menghitung target kalori Anda berdasarkan rumus TDEE.
+5.  **Mulai Tracking**: Langsung masuk ke dashboard dan mulai catat makanan harian Anda!
 
 ### Mencatat Makanan
 1.  Buka menu **Search**.
